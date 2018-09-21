@@ -1,9 +1,9 @@
 ###
-get http://127.0.0.1:3333/
+GET https://127.0.0.1:3333/
 
 
 ###
-POST http://127.0.0.1:3333/api/auth/register
+POST https://127.0.0.1:3333/api/auth/register
 Content-Type: application/json
 
 {
@@ -14,26 +14,55 @@ Content-Type: application/json
 
 ###
 GET https://127.0.0.1:3333/api/projects
-authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTUzNzI1MDEyNX0.UUe75hElYJHFaqUx-Pb9fgYD2FUSOEAe9C66LGDSpyU
+authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzNzUxMTA4Mn0.I5AAth2VcnqZvsWHqVb7uNftrpGYlmBZy7JYi8NE9sQ
 
-### create
-post https://127.0.0.1:3333/api/projects
-authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTUzNzI1MDEyNX0.UUe75hElYJHFaqUx-Pb9fgYD2FUSOEAe9C66LGDSpyU
+### Project create
+POST  https://127.0.0.1:3333/api/projects
+authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzNzUxMTA4Mn0.I5AAth2VcnqZvsWHqVb7uNftrpGYlmBZy7JYi8NE9sQ
 Content-Type: application/json
 
 {
-	"title":"test https server"
+	"title":"Porject 1"
 }
 
-### delete
-DELETE http://127.0.0.1:3333/api/projects/19
+### Project DELETE
+DELETE https://127.0.0.1:3333/api/projects/19
 authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTUzNzI1MDEyNX0.UUe75hElYJHFaqUx-Pb9fgYD2FUSOEAe9C66LGDSpyU
 
-### patch update
+### Project patch UPDATE
 PATCH https://127.0.0.1:3333/api/projects/6
-authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTUzNzI1MDEyNX0.UUe75hElYJHFaqUx-Pb9fgYD2FUSOEAe9C66LGDSpyU
+authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzNzUxMTA4Mn0.I5AAth2VcnqZvsWHqVb7uNftrpGYlmBZy7JYi8NE9sQ
 Content-Type: application/json
 
 {
 	"title":"666"
+}
+
+
+### Task Create
+POST https://127.0.0.1:3333/api/projects/1/tasks
+authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzNzUxMTA4Mn0.I5AAth2VcnqZvsWHqVb7uNftrpGYlmBZy7JYi8NE9sQ
+Content-Type: application/json
+
+{
+	"task_decription" : "Task 3" ,
+  "completed" : "false"
+}
+
+### Task List
+GET https://127.0.0.1:3333/api/projects/1/tasks
+authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzNzUxMTA4Mn0.I5AAth2VcnqZvsWHqVb7uNftrpGYlmBZy7JYi8NE9sQ
+
+### Task Delte
+DELETE https://127.0.0.1:3333/api/tasks/1
+authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzNzUxMTA4Mn0.I5AAth2VcnqZvsWHqVb7uNftrpGYlmBZy7JYi8NE9sQ
+
+### Task Update
+PATCH  https://127.0.0.1:3333/api/tasks/3
+authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzNzUxMTA4Mn0.I5AAth2VcnqZvsWHqVb7uNftrpGYlmBZy7JYi8NE9sQ
+Content-Type : application/json
+
+{
+	"task_decription" : "Task 3 - Updated" ,
+  "completed" : "true"
 }
