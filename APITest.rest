@@ -4,8 +4,36 @@ get http://127.0.0.1:3333/
 
 ###
 POST http://127.0.0.1:3333/api/auth/register
-Content-Type: application/x-www-form-urlencoded
+Content-Type: application/json
 
+{
+	"email":"bennycao9@me.com",
+	"password":"123456"
+}
 
 
 ###
+GET https://127.0.0.1:3333/api/projects
+authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTUzNzI1MDEyNX0.UUe75hElYJHFaqUx-Pb9fgYD2FUSOEAe9C66LGDSpyU
+
+### create
+post https://127.0.0.1:3333/api/projects
+authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTUzNzI1MDEyNX0.UUe75hElYJHFaqUx-Pb9fgYD2FUSOEAe9C66LGDSpyU
+Content-Type: application/json
+
+{
+	"title":"test https server"
+}
+
+### delete
+DELETE http://127.0.0.1:3333/api/projects/19
+authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTUzNzI1MDEyNX0.UUe75hElYJHFaqUx-Pb9fgYD2FUSOEAe9C66LGDSpyU
+
+### patch update
+PATCH https://127.0.0.1:3333/api/projects/6
+authorization :Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTUzNzI1MDEyNX0.UUe75hElYJHFaqUx-Pb9fgYD2FUSOEAe9C66LGDSpyU
+Content-Type: application/json
+
+{
+	"title":"666"
+}
